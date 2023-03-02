@@ -1,0 +1,56 @@
+{
+	"name": "Dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "wendysynapse-WorkspaceDefaultStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "AMR"
+				},
+				{
+					"linkedService": {
+						"referenceName": "wendysynapse-WorkspaceDefaultStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "DMR",
+					"description": "Import data from wendysynapse-WorkspaceDefaultStorage"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'wdlsfilename',",
+				"     folderPath: 'silver',",
+				"     fileName: 'P6523_Verbruiken_AMR_GEMEENTE_202208.csv',",
+				"     rowDelimiter: '\\n',",
+				"     columnDelimiter: ';',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true) ~> AMR",
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'wdlsfilename',",
+				"     folderPath: 'silver',",
+				"     fileName: 'P6523_Verbruiken_DM_GEMEENTE_202208.csv',",
+				"     rowDelimiter: '\\n',",
+				"     columnDelimiter: ';',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true) ~> DMR"
+			]
+		}
+	}
+}

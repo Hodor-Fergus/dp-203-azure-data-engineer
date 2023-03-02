@@ -1,0 +1,28 @@
+{
+	"name": "dataflowsource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "wendysynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "silver",
+				"fileSystem": "wdlsfilename"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Trekkingsdatum;Peildatum;Markt;Leveringsadres_Postcode;Leveringsadres_Gemeente;Sector;Graaddagen_RM;Graaddagen_VM_2017;AantalToegangspunten_2017;WerkelijkVerbruik_RM_2017;BenaderendVerbruik_VM_2017;Perc_Delta_VM_2017vsRM;Graaddagen_VM_2018;AantalToegangspunten_2018;WerkelijkVerbruik_RM_2018;BenaderendVerbruik_VM_2018;Perc_Delta_VM_2018vsRM;Graaddagen_VM_2019;AantalToegangspunten_2019;WerkelijkVerbruik_RM_2019;BenaderendVerbruik_VM_2019;Perc_Delta_VM_2019vsRM;Graaddagen_VM_2020;AantalToegangspunten_2020;WerkelijkVerbruik_RM_2020;BenaderendVerbruik_VM_2020;Perc_Delta_VM_2020vsRM;Graaddagen_VM_2021;AantalToegangspunten_2021;WerkelijkVerbruik_RM_2021;BenaderendVerbruik_VM_2021;Perc_Delta_VM_2021vsRM",
+				"type": "String"
+			}
+		]
+	}
+}
